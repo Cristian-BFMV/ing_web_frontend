@@ -1,0 +1,133 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+}
+
+.form-container {
+  width: 80%;
+  max-width: 35rem;
+  padding: 2.5rem 3.5rem;
+  border: 1px solid rgb(233, 233, 233);
+  border-radius: 1rem;
+}
+
+.form-header {
+  text-align: center;
+  margin: 0.8rem 0;
+}
+
+.form-title {
+  font-size: 2rem;
+  color: rgb(54, 54, 54);
+}
+
+.form-label {
+  font-size: 1.2rem;
+  color: rgb(126, 126, 126);
+}
+
+.form-input {
+  width: 100%;
+  margin: 1rem 0;
+  padding: 0.4rem 0.5rem;
+  border: none;
+  border: 1px solid rgb(126, 126, 126);
+  border-radius: 0.5rem;
+  outline: none;
+  color: rgb(126, 126, 126);
+  font-size: 1.2rem;
+  transition: all 0.1s ease-in-out;
+}
+
+.form-input:focus {
+  border: none;
+  border: 1px solid rgb(0, 110, 255);
+}
+
+.form-input-invalid {
+  border: 1px solid rgb(255, 0, 0);
+}
+
+.form-input-error-message {
+  font-size: 1.1rem;
+  color: rgb(255, 73, 73);
+}
+
+.form-button {
+  margin: 1rem 0;
+  width: 100%;
+  padding: 0.5rem 0;
+  font-size: 1.2rem;
+  color: white;
+  background-color: #0070f3;
+  border: 1px solid #0070f3;
+  border-radius: 1.4rem;
+  cursor: pointer;
+  transition: all ease-in-out 0.2s;
+}
+
+.form-button:hover {
+  color: #0070f3;
+  background-color: white;
+}
+
+.form-link {
+  font-size: 1.2rem;
+  color: #0070f3;
+}
+
+.form-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+@media (min-width: 900px) and (max-width: 1199px) {
+  .form-title {
+    font-size: 1.8rem;
+  }
+
+  .form-input {
+    font-size: 1.1rem;
+  }
+
+  .form-button {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+  .form-title {
+    font-size: 1.6rem;
+  }
+
+  .form-input {
+    font-size: 1.1rem;
+  }
+
+  .form-button {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 599px) {
+  .form-container {
+    width: 90%;
+    max-width: 45rem;
+    padding: 3rem;
+  }
+
+  .form-title {
+    font-size: 1.6rem;
+  }
+
+  .form-input {
+    font-size: 1.1rem;
+  }
+
+  .form-button {
+    font-size: 1.1rem;
+  }
+}

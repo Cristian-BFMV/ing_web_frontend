@@ -1,0 +1,118 @@
+.pet-services-container {
+  padding: 0 10%;
+}
+
+.pet-services-header {
+  text-align: center;
+}
+
+.pet-services-header-title {
+  font-size: 2.8rem;
+  color: rgb(54, 54, 54);
+}
+
+.pet-services-header-description {
+  font-size: 1.2rem;
+  color: rgb(126, 126, 126);
+}
+
+.services-icons {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+  margin: 1.5rem 0;
+}
+
+.service-card {
+  flex: 0 0 30%;
+  text-align: center;
+}
+
+.service-card-icon {
+  width: 100%;
+  max-width: 10rem;
+}
+
+.service-card-title {
+  font-size: 2rem;
+  color: rgb(44, 44, 44);
+}
+
+.service-card-description {
+  font-size: 1.1rem;
+  color: rgb(126, 126, 126);
+}
+
+@media (min-width: 900px) and (max-width: 1199px) {
+  .pet-services-header-title {
+    font-size: 2.4rem;
+  }
+
+  .pet-services-header-description {
+    font-size: 1.1rem;
+  }
+
+  .service-card-icon {
+    max-width: 8rem;
+  }
+
+  .service-card-title {
+    font-size: 1.6rem;
+  }
+
+  .service-card-description {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+  .pet-services-header-title {
+    font-size: 2.2rem;
+  }
+
+  .pet-services-header-description {
+    font-size: 1rem;
+  }
+
+  .service-card-icon {
+    max-width: 6rem;
+  }
+
+  .service-card-title {
+    font-size: 1.4rem;
+  }
+
+  .service-card-description {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 599px) {
+  .services-icons {
+    justify-content: center;
+  }
+
+  .service-card {
+    flex: 0 0 80%;
+  }
+
+  .pet-services-header-title {
+    font-size: 2.2rem;
+  }
+
+  .pet-services-header-description {
+    font-size: 1rem;
+  }
+
+  .service-card-icon {
+    max-width: 6rem;
+  }
+
+  .service-card-title {
+    font-size: 1.4rem;
+  }
+
+  .service-card-description {
+    font-size: 0.9rem;
+  }
+}
