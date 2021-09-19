@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
 import Form from '../../../../components/Form/Form';
 
 const LoginForm = () => {
@@ -9,8 +10,11 @@ const LoginForm = () => {
     formState: { errors, isSubmitting },
   } = useForm();
 
+  const history = useHistory();
+
   const onSubmit = data => {
     console.log(data);
+    history.push('/home');
   };
 
   return (

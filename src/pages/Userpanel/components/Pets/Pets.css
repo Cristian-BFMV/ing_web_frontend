@@ -1,0 +1,108 @@
+.pets-title {
+  font-size: 1.4rem;
+}
+
+.pets-list {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.pets-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pet-card {
+  flex: 0 0 30%;
+  margin: 1rem 1.5%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  -webkit-box-shadow: -1px 7px 21px 5px rgba(242, 242, 242, 1);
+  -moz-box-shadow: -1px 7px 21px 5px rgba(242, 242, 242, 1);
+  box-shadow: -1px 7px 21px 5px rgba(242, 242, 242, 1);
+}
+
+.pet-card-header {
+  margin: 0 0 0.5rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgb(228, 228, 228);
+}
+
+.pet-card-role {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: rgb(126, 126, 126);
+}
+
+.pet-card-name {
+  font-size: 1.2rem;
+  color: rgb(54, 54, 54);
+}
+
+.pet-card-body {
+  margin: 1rem 0;
+}
+
+.pet-card-description {
+  margin: 0.5rem 0;
+  color: rgb(126, 126, 126);
+  font-size: 0.9rem;
+}
+
+.pet-card-button,
+.pets-cta {
+  padding: 0.3rem 1rem;
+  display: inline-block;
+  margin-right: 1rem;
+  background-color: white;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: all ease-in-out 0.1s;
+}
+
+.pet-card-edit,
+.pets-cta {
+  border: 1px solid #0070f3;
+  color: #0070f3;
+}
+
+.pet-card-edit:hover,
+.pets-cta:hover {
+  background-color: #0070f3;
+  color: white;
+}
+
+.pet-card-delete {
+  border: 1px solid rgb(255, 73, 73);
+  color: rgb(255, 73, 73);
+}
+
+.pet-card-delete:hover {
+  background-color: rgb(255, 73, 73);
+  color: white;
+}
+
+@media (min-width: 900px) and (max-width: 1199px) {
+  .pet-card {
+    flex: 0 0 32.2%;
+    margin: 1rem 0.5%;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+  .pet-card {
+    flex: 0 0 45%;
+    margin: 1rem 0.5%;
+  }
+
+  .pet-card-button {
+    padding: 0.3rem 0.8rem;
+  }
+}
+
+@media (max-width: 599px) {
+  .pet-card {
+    flex: 0 0 100%;
+    margin: 1rem 0;
+  }
+}

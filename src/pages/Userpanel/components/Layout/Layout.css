@@ -1,0 +1,17 @@
+.layout-container {
+  display: grid;
+  grid-template-columns: 15% 75%;
+  grid-template-rows: auto;
+  grid-template-areas: 'sidebar panel';
+  gap: 2.5rem;
+}
+
+@media (max-width: 599px) {
+  .layout-container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'sidebar'
+      'panel';
+    gap: 1.2rem;
+  }
+}
