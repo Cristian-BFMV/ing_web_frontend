@@ -1,0 +1,106 @@
+.panel-container {
+  padding: 2.5rem 0;
+}
+
+.panel-header {
+  border-bottom: 1px solid rgb(126, 126, 126);
+  padding: 1.5rem 0;
+}
+
+.panel-header-title {
+  font-size: 1.8rem;
+  color: rgb(54, 54, 54);
+  margin-bottom: 0.5rem 0;
+}
+
+.panel-header-description {
+  font-size: 1.2rem;
+  color: rgb(126, 126, 126);
+}
+
+.panel-link-list {
+  display: flex;
+  margin: 1rem 0;
+}
+
+.panel-link-item {
+  margin-right: 2rem;
+}
+
+.panel-link {
+  color: rgb(54, 54, 54);
+  font-size: 1.2rem;
+  transition: all ease-in-out 0.1s;
+}
+
+.panel-link:hover {
+  color: #0070f3;
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+.panel-link-active {
+  color: #0070f3;
+}
+
+@media (min-width: 900px) and (max-width: 1199px) {
+  .panel-header-title {
+    font-size: 1.5rem;
+  }
+
+  .panel-header-description {
+    font-size: 1.2rem;
+    color: rgb(126, 126, 126);
+  }
+  .panel-link {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+  .panel-header-title {
+    font-size: 1.2rem;
+  }
+
+  .panel-header-description {
+    font-size: 1rem;
+  }
+  .panel-link {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 599px) {
+  .panel-link-list {
+    flex-wrap: nowrap;
+    width: 100vw;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding: 0.5rem 0;
+  }
+
+  .panel-link-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .panel-container {
+    padding: 0 5%;
+  }
+
+  .panel-header {
+    padding: 0;
+  }
+
+  .panel-header-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .panel-header-description {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .panel-link {
+    font-size: 0.8rem;
+  }
+}
