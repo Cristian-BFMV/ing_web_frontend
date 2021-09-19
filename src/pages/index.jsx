@@ -3,6 +3,7 @@ import EmployeeSignUp from './Employeesignup';
 import Guest from './Guest';
 import Home from './Home';
 import Login from './Login';
+import UserPanel from './Userpanel';
 
 const AppPages = () => {
   return (
@@ -11,6 +12,7 @@ const AppPages = () => {
       <Route path="/login" component={Login} />
       <Route path="/guest" component={Guest} />
       <Route path="/employeesignup/:employee_id" component={EmployeeSignUp} />
+      <Route path="/home" component={UserPanel} />
     </Switch>
   );
 };
