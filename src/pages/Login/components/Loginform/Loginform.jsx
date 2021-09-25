@@ -1,25 +1,32 @@
-import { Fragment } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import Form from '../../../../components/Form/Form';
+import { loginService } from '../../../../services/Auth.service';
+import { AuthContext } from '../../../../context/Auth.context';
 
-const LoginForm = () => {
+const LoginForm = ({ showModalError }) => {
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm();
-
+  const { updateToken } = React.useContext(AuthContext);
   const history = useHistory();
 
-  const onSubmit = data => {
-    console.log(data);
-    history.push('/home');
+  const onSubmit = async ({ username, password }) => {
+    try {
+      const token = await loginService(username, password);
+      updateToken(token);
+      history.push('/home');
+    } catch (error) {
+      showModalError(error.message);
+    }
   };
 
   return (
     <Form title="Iniciar Sesión" onSubmit={handleSubmit(onSubmit)} isSubmitting={isSubmitting} buttonText="Iniciar Sesión">
-      <Fragment>
+      <React.Fragment>
         <label className="form-label" htmlFor="username">
           Usuario
         </label>
@@ -40,7 +47,7 @@ const LoginForm = () => {
           {...register('password', { required: true })}
         />
         <p className="form-input-error-message">{errors.password && 'Este campo es requerido'}</p>
-      </Fragment>
+      </React.Fragment>
     </Form>
   );
 };
