@@ -11,13 +11,13 @@ const LoginForm = ({ showModalError }) => {
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm();
-  const { updateToken } = React.useContext(AuthContext);
+  const { login } = React.useContext(AuthContext);
   const history = useHistory();
 
   const onSubmit = async ({ username, password }) => {
     try {
-      const token = await loginService(username, password);
-      updateToken(token);
+      const loginInfo = await loginService(username, password);
+      login(loginInfo);
       history.push('/home');
     } catch (error) {
       showModalError(error.message);

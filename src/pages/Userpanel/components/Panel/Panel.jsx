@@ -1,15 +1,29 @@
+import React from 'react';
 import { useRouteMatch, NavLink, Switch, Route } from 'react-router-dom';
 import Employees from '../../../Employees';
-import Info from '../Info/Info';
+import Info from '../../../Info';
 import Pets from '../Pets/Pets';
 import './Panel.css';
 
 const Panel = () => {
+  const [greeting, setGreeting] = React.useState('');
+
+  React.useEffect(() => {
+    const currentHour = new Date().getHours();
+    if (currentHour < 12) {
+      setGreeting('¡Buenos días!');
+    } else if (currentHour < 18) {
+      setGreeting('¡Buenas tardes!');
+    } else {
+      setGreeting('¡Buenas noches!');
+    }
+  }, []);
+
   const { path, url } = useRouteMatch();
   return (
     <section className="panel-container">
       <div className="panel-header">
-        <h2 className="panel-header-title">Hola, Mateo Baena</h2>
+        <h2 className="panel-header-title">{greeting}</h2>
         <p className="panel-header-description">Este es tu panel de administración</p>
       </div>
       <div className="panel-body">
