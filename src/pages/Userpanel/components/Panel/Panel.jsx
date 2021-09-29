@@ -1,5 +1,5 @@
 import { useRouteMatch, NavLink, Switch, Route } from 'react-router-dom';
-import Employees from '../Employees/Employees';
+import Employees from '../../../Employees';
 import Info from '../Info/Info';
 import Pets from '../Pets/Pets';
 import './Panel.css';

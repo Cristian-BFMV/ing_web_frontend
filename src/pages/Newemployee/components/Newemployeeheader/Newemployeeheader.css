@@ -1,0 +1,15 @@
+.newemployee-header-routing-container {
+  width: 100%;
+  padding: 2.5% 5%;
+}
+
+.newemployee-header-routing {
+  text-decoration: none;
+  color: #0070f3;
+  font-size: 1.2rem;
+}
+
+.newemployee-header-routing:hover {
+  text-decoration: underline;
+  opacity: 0.8;
+}

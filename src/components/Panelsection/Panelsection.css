@@ -1,0 +1,25 @@
+.panel-section-title {
+  font-size: 1.4rem;
+}
+
+.panel-section-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.panel-section-cta {
+  padding: 0.3rem 1rem;
+  display: inline-block;
+  margin-right: 1rem;
+  background-color: white;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: all ease-in-out 0.1s;
+  border: 1px solid #0070f3;
+  color: #0070f3;
+}
+
+.panel-section-cta:hover {
+  background-color: #0070f3;
+  color: white;
+}
