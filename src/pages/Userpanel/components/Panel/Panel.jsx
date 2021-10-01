@@ -2,6 +2,7 @@ import React from 'react';
 import { useRouteMatch, NavLink, Switch, Route } from 'react-router-dom';
 import Employees from '../../../Employees';
 import Info from '../../../Info';
+import Owners from '../../../Owners';
 import Pets from '../Pets/Pets';
 import './Panel.css';
 
@@ -58,9 +59,7 @@ const Panel = () => {
           <Route path={path} exact={true} component={Info} />
           <Route path={`${path}/employees`} component={Employees} />
           <Route path={`${path}/pets`} component={Pets} />
-          <Route path={`${path}/owners`}>
-            <h1>owners</h1>
-          </Route>
+          <Route path={`${path}/owners`} component={Owners} />
           <Route path={`${path}/schedule`}>
             <h1>schedule</h1>
           </Route>
