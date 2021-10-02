@@ -4,6 +4,7 @@ import Employees from '../../../Employees';
 import Info from '../../../Info';
 import Owners from '../../../Owners';
 import Pets from '../Pets/Pets';
+import Schedule from '../../../Schedule';
 import './Panel.css';
 
 const Panel = () => {
@@ -60,9 +61,7 @@ const Panel = () => {
           <Route path={`${path}/employees`} component={Employees} />
           <Route path={`${path}/pets`} component={Pets} />
           <Route path={`${path}/owners`} component={Owners} />
-          <Route path={`${path}/schedule`}>
-            <h1>schedule</h1>
-          </Route>
+          <Route path={`${path}/schedule`} component={Schedule} />
         </Switch>
       </div>
     </section>
