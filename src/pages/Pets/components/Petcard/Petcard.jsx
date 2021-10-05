@@ -1,20 +1,20 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import OwnerModal from '../Ownermodal/Ownermodal';
+import PetModal from '../Petmodal/Petmodal';
 import Modal from '../../../../components/Modal/Modal';
 import { AuthContext } from '../../../../context/Auth.context';
-import * as ownerService from '../../../../services/Owners.service';
+import * as petService from '../../../../services/Pets.service';
 import modalReducer, { initialState } from '../../../../reducers/Modal.reducer';
 
-const OwnerCard = ({ _id, name, lastname, email, address, document, phonenumber }) => {
+const PetCard = ({ _id, name, breed, size, age, vaccinePlan, attendance }) => {
   const { token } = React.useContext(AuthContext);
   const [state, dispatch] = React.useReducer(modalReducer, initialState);
   const history = useHistory();
 
   const deleteOwner = React.useCallback(
-    async ownerId => {
+    async petId => {
       try {
-        await ownerService.deleteOwnerService(ownerId, token);
+        await petService.deletePetService(petId, token);
         dispatch({ type: 'SHOW_MODAL_SUCCESS' });
       } catch (error) {
         dispatch({ type: 'SHOW_MODAL_ERROR', payload: 'No ha sido posible eliminar este empleado' });
@@ -33,16 +33,17 @@ const OwnerCard = ({ _id, name, lastname, email, address, document, phonenumber 
     <React.Fragment>
       <div className="card">
         <div className="card-header">
-          <h3 className="card-name">{`${name} ${lastname}`}</h3>
+          <h3 className="card-name">{name}</h3>
         </div>
         <div className="card-body">
-          <p className="card-description">{email}</p>
-          <p className="card-description">{address}</p>
-          <p className="card-description">{document}</p>
-          <p className="card-description">{phonenumber}</p>
+          <p className="card-description">{breed}</p>
+          <p className="card-description">{size}</p>
+          <p className="card-description">{age}</p>
+          <p className="card-description">{vaccinePlan}</p>
+          <p className="card-description">{attendance}</p>
         </div>
         <div className="card-footer">
-          <button className="card-button card-edit" onClick={() => history.push(`/editowner/${_id}`)}>
+          <button className="card-button card-edit" onClick={() => history.push(`/editpet/${_id}`)}>
             Editar
           </button>
           <button className="card-button card-delete" onClick={() => deleteOwner(_id)}>
@@ -51,10 +52,10 @@ const OwnerCard = ({ _id, name, lastname, email, address, document, phonenumber 
         </div>
       </div>
       <Modal show={state.showModal} error={state.error} errorMessage={state.errorMessage} closeModal={closeModal}>
-        <OwnerModal />
+        <PetModal />
       </Modal>
     </React.Fragment>
   );
 };
 
-export default OwnerCard;
+export default PetCard;

@@ -1,8 +1,8 @@
 import React from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import EditOwnerForm from './components/Editownerform/Editownerform';
-import EditOwnerHeader from './components/Edtiownerheader/Editownerheader';
-import EditOwnerModal from './components/Editownermodal/Editownermodal';
+import FormHeader from '../../components/Formheader/Formheader';
+import FormModal from '../../components/Formmodalsuccess/Formmodalsuccess';
 import Error from '../../components/Error/Error';
 import Modal from '../../components/Modal/Modal';
 import Spinner from '../../components/Spinner/Spinner';
@@ -58,7 +58,7 @@ const EditOwnerPage = () => {
             />
           ) : (
             <React.Fragment>
-              <EditOwnerHeader />
+              <FormHeader redirectTo="/home/owners" />
               <EditOwnerForm
                 owner={owner}
                 ownerId={owner_id}
@@ -66,7 +66,10 @@ const EditOwnerPage = () => {
                 showModalError={showModalError}
               />
               <Modal show={state.showModal} error={state.error} errorMessage={state.errorMessage} closeModal={closeModal}>
-                <EditOwnerModal />
+                <FormModal
+                  title="Propietario Actualizado"
+                  description="Pueder ver la información en la sección de proietarios"
+                />
               </Modal>
             </React.Fragment>
           )}

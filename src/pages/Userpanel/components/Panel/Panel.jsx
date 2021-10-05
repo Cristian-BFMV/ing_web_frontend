@@ -3,7 +3,7 @@ import { useRouteMatch, NavLink, Switch, Route } from 'react-router-dom';
 import Employees from '../../../Employees';
 import Info from '../../../Info';
 import Owners from '../../../Owners';
-import Pets from '../Pets/Pets';
+import Pets from '../../../Pets';
 import Schedule from '../../../Schedule';
 import './Panel.css';
 

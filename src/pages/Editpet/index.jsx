@@ -1,27 +1,29 @@
 import React from 'react';
-import { useParams, useHistory } from 'react-router-dom';
-import EditEmployeeForm from './components/Editemployeeform/Editemployeeform';
+import { useHistory, useParams } from 'react-router-dom';
+import EditPetForm from './components/Editpetform/Editpetform';
 import FormHeader from '../../components/Formheader/Formheader';
 import FormModal from '../../components/Formmodalsuccess/Formmodalsuccess';
 import Error from '../../components/Error/Error';
 import Modal from '../../components/Modal/Modal';
 import Spinner from '../../components/Spinner/Spinner';
-import { getEmployeeByIdService } from '../../services/Employees.service';
+import { getPetByIdService } from '../../services/Pets.service';
 import modalReducer, { initialState } from '../../reducers/Modal.reducer';
+import { AuthContext } from '../../context/Auth.context';
 
-const EditEmployeePage = () => {
-  const [employee, setEmployee] = React.useState({});
+const EditPetPage = () => {
+  const [pet, setPet] = React.useState({});
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState(false);
   const [state, dispatch] = React.useReducer(modalReducer, initialState);
   const history = useHistory();
-  const { employee_id } = useParams();
+  const { pet_id } = useParams();
+  const { token } = React.useContext(AuthContext);
 
   React.useEffect(() => {
     const getEmployeeById = async () => {
       try {
-        const employee = await getEmployeeByIdService(employee_id);
-        setEmployee(employee);
+        const pet = await getPetByIdService(pet_id, token);
+        setPet(pet);
       } catch (error) {
         setError(true);
       } finally {
@@ -30,11 +32,11 @@ const EditEmployeePage = () => {
     };
 
     getEmployeeById();
-  }, [employee_id]);
+  }, [pet_id, token]);
 
   const closeModal = React.useCallback(() => {
     dispatch({ type: 'CLOSE_MODAL' });
-    history.push('/home/employees');
+    history.push('/home/pets');
   }, [history]);
 
   const showModalSuccess = React.useCallback(() => {
@@ -54,19 +56,14 @@ const EditEmployeePage = () => {
           {error ? (
             <Error
               title="Lo sentimos, ha ocurrido un problema"
-              message="No ha sido posible cargar la información del empleado"
+              message="No ha sido posible cargar la información de la mascota"
             />
           ) : (
             <React.Fragment>
-              <FormHeader redirectTo="/home/employees" />
-              <EditEmployeeForm
-                employee={employee}
-                employeeId={employee_id}
-                showModalSuccess={showModalSuccess}
-                showModalError={showModalError}
-              />
+              <FormHeader redirectTo="/home/pets" />
+              <EditPetForm pet={pet} petId={pet_id} showModalSuccess={showModalSuccess} showModalError={showModalError} />
               <Modal show={state.showModal} error={state.error} errorMessage={state.errorMessage} closeModal={closeModal}>
-                <FormModal title="Empleado actualizado" description="Pueder ver la información en la sección de empleados" />
+                <FormModal title="Mascota registrada" description="Pueder ver la información en la sección de mascotas" />
               </Modal>
             </React.Fragment>
           )}
@@ -76,4 +73,4 @@ const EditEmployeePage = () => {
   );
 };
 
-export default EditEmployeePage;
+export default EditPetPage;

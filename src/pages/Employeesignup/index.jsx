@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import EmployeeSignupForm from './components/Employeesignupform/Employeesignupform';
-import EmployeeSignUpModal from './components/Employeesignupmodal/Employeesignupmodal';
+import FormModal from '../../components/Formmodalsuccess/Formmodalsuccess';
 import Modal from '../../components/Modal/Modal';
 import modalReducer, { initialState } from '../../reducers/Modal.reducer';
 
@@ -12,7 +12,7 @@ const EmployeeSignUpPage = () => {
 
   const closeModal = React.useCallback(() => {
     dispatch({ type: 'CLOSE_MODAL' });
-    history.push('/home/employees');
+    history.push('/login');
   }, [history]);
 
   const showModalSuccess = React.useCallback(() => {
@@ -27,7 +27,7 @@ const EmployeeSignUpPage = () => {
     <React.Fragment>
       <EmployeeSignupForm employee_id={employee_id} showModalSuccess={showModalSuccess} showModalError={showModalError} />
       <Modal show={state.showModal} error={state.error} errorMessage={state.errorMessage} closeModal={closeModal}>
-        <EmployeeSignUpModal />
+        <FormModal title="Datos de sesión actualizados" />
       </Modal>
     </React.Fragment>
   );

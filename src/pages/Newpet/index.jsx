@@ -1,18 +1,18 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import NewOwnerForm from './components/Newownerform/Newownerform';
+import NewPetForm from './components/Newpetform/Newpetform';
 import FormHeader from '../../components/Formheader/Formheader';
 import FormModal from '../../components/Formmodalsuccess/Formmodalsuccess';
 import Modal from '../../components/Modal/Modal';
 import modalReducer, { initialState } from '../../reducers/Modal.reducer';
 
-const NewOwnerPage = () => {
+const NewPetPage = () => {
   const [state, dispatch] = React.useReducer(modalReducer, initialState);
   const history = useHistory();
 
   const closeModal = React.useCallback(() => {
     dispatch({ type: 'CLOSE_MODAL' });
-    history.push('/home/owners');
+    history.push('/home/pets');
   }, [history]);
 
   const showModalSuccess = React.useCallback(() => {
@@ -25,13 +25,13 @@ const NewOwnerPage = () => {
 
   return (
     <React.Fragment>
-      <FormHeader redirectTo="/home/owners" />
-      <NewOwnerForm showModalSuccess={showModalSuccess} showModalError={showModalError} />
+      <FormHeader redirectTo="/home/pets" />
+      <NewPetForm showModalSuccess={showModalSuccess} showModalError={showModalError} />
       <Modal show={state.showModal} error={state.error} errorMessage={state.errorMessage} closeModal={closeModal}>
-        <FormModal title="Propietario registrado" description="Pueder ver la información en la sección de propietarios" />
+        <FormModal title="Mascota registrada" description="Pueder ver la información en la sección de mascotas" />
       </Modal>
     </React.Fragment>
   );
 };
 
-export default NewOwnerPage;
+export default NewPetPage;

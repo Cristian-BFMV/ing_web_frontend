@@ -1,18 +1,17 @@
 import { Fragment } from 'react';
 import success from '../../../../assets/success.svg';
 
-const NewEmployeeModal = () => {
+const PetModal = () => {
   return (
     <Fragment>
       <div className="modal-header">
         <img src={success} alt="Success" className="modal-image" />
       </div>
       <div className="modal-body">
-        <h1 className="modal-title">Empleado registrado</h1>
-        <p className="modal-text">Pueder ver la información en la sección de empleados</p>
+        <h1 className="modal-title">Mascota Eliminada</h1>
       </div>
     </Fragment>
   );
 };
 
-export default NewEmployeeModal;
+export default PetModal;

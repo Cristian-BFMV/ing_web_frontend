@@ -1,11 +1,11 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import Form from '../../../../components/Form/Form';
-import OwnerForm from '../../../../components/Ownerform/Ownerform';
-import { createOwnerService } from '../../../../services/Owners.service';
+import PetForm from '../../../../components/Petform/Petform';
+import { createPetService } from '../../../../services/Pets.service';
 import { AuthContext } from '../../../../context/Auth.context';
 
-const NewOwnerForm = ({ showModalSuccess, showModalError }) => {
+const NewPetForm = ({ showModalSuccess, showModalError }) => {
   const {
     register,
     handleSubmit,
@@ -15,7 +15,7 @@ const NewOwnerForm = ({ showModalSuccess, showModalError }) => {
 
   const onSubmit = async formData => {
     try {
-      await createOwnerService(formData, token);
+      await createPetService(formData, token);
       showModalSuccess();
     } catch (error) {
       showModalError(error.message);
@@ -23,10 +23,10 @@ const NewOwnerForm = ({ showModalSuccess, showModalError }) => {
   };
 
   return (
-    <Form title="Registrar propietario" onSubmit={handleSubmit(onSubmit)} isSubmitting={isSubmitting} buttonText="Registrar">
-      <OwnerForm register={register} errors={errors} />
+    <Form title="Registrar mascota" onSubmit={handleSubmit(onSubmit)} isSubmitting={isSubmitting} buttonText="Registrar">
+      <PetForm register={register} errors={errors} />
     </Form>
   );
 };
 
-export default NewOwnerForm;
+export default NewPetForm;

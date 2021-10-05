@@ -1,8 +1,8 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import NewEmployeeForm from './components/Newemployeeform/Newemployeeform';
-import NewEmployeeHeader from './components/Newemployeeheader/Newemployeeheader';
-import NewEmployeeModal from './components/Newemployeemodal/Newemployeemodal';
+import FormHeader from '../../components/Formheader/Formheader';
+import FormModal from '../../components/Formmodalsuccess/Formmodalsuccess';
 import Modal from '../../components/Modal/Modal';
 import modalReducer, { initialState } from '../../reducers/Modal.reducer';
 
@@ -25,10 +25,10 @@ const NewEmployeePage = () => {
 
   return (
     <React.Fragment>
-      <NewEmployeeHeader />
+      <FormHeader redirectTo="/home/employees" />
       <NewEmployeeForm showModalSuccess={showModalSuccess} showModalError={showModalError} />
       <Modal show={state.showModal} error={state.error} errorMessage={state.errorMessage} closeModal={closeModal}>
-        <NewEmployeeModal />
+        <FormModal title="Empleado registrado" description="Pueder ver la información en la sección de empleados" />
       </Modal>
     </React.Fragment>
   );
