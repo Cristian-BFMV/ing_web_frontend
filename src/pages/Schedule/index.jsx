@@ -4,41 +4,38 @@ import Calendar from './components/Calendar/Calendar';
 import Error from '../../components/Error/Error';
 import PanelSection from '../../components/Panelsection/Panelsection';
 import Spinner from '../../components/Spinner/Spinner';
+import { getAllSchedulesService } from '../../services/Schedule.service';
+import { AuthContext } from '../../context/Auth.context';
+
+//.toISOString().replace(/T.*$/, '')
 
 const SchedulePage = () => {
   const [scheduleEvents, setScheduleEvents] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState(false);
+  const { token } = React.useContext(AuthContext);
   const history = useHistory();
 
   React.useEffect(() => {
-    setTimeout(() => {
-      setScheduleEvents([
-        {
-          title: 'Primer evento',
-          start: new Date().toISOString().replace(/T.*$/, ''),
-          extendedProps: { id: 1, pet: 'Firulais' },
-        },
-        {
-          title: 'Segundo evento',
-          start: new Date().toISOString().replace(/T.*$/, '') + 'T12:00:00',
-          extendedProps: { id: 2, pet: 'Firulais 2' },
-        },
-        {
-          title: 'Tercer evento',
-          start: new Date('2021/10/1').toISOString().replace(/T.*$/, '') + 'T12:00:00',
-          extendedProps: { id: 2, pet: 'Firulais 2' },
-        },
-        {
-          title: 'Cuarto evento',
-          start: new Date('2021/09/30').toISOString().replace(/T.*$/, '') + 'T12:00:00',
-          extendedProps: { id: 2, pet: 'Firulais 2' },
-        },
-      ]);
-      setLoading(false);
-      setError(false);
-    }, 1000);
-  }, []);
+    const getAllSchedules = async () => {
+      try {
+        const schedules = await getAllSchedulesService(token);
+        const formatSchedules = schedules.map(schedule => ({
+          title: schedule.serviceName,
+          start: new Date(schedule.startDate),
+          end: new Date(schedule.finishDate),
+          extendedProps: { petId: schedule.idPet, status: schedule.status, news: schedule.news, cost: schedule.cost },
+        }));
+        console.log(formatSchedules);
+        setScheduleEvents(formatSchedules);
+      } catch (error) {
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    };
+    getAllSchedules();
+  }, [token]);
 
   return (
     <React.Fragment>

@@ -8,6 +8,7 @@ import Home from './Home';
 import Login from './Login';
 import NewEmployee from './Newemployee';
 import NewPet from './Newpet';
+import NewSchedule from './Newschedule';
 import NewOwner from './Newowner';
 import UserPanel from './Userpanel';
 
@@ -25,6 +26,7 @@ const AppPages = () => {
       <Route path="/editowner/:owner_id" component={EditOwner} />
       <Route path="/newpet" component={NewPet} />
       <Route path="/editpet/:pet_id" component={EditPet} />
+      <Route path="/newschedule" component={NewSchedule} />
     </Switch>
   );
 };
