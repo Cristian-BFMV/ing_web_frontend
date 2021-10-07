@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const getAllPetsService = async token => {
   try {
-    const { data } = await axios.get('https://ing-web-mascots.herokuapp.com/api/mascots', {
+    const { data } = await axios.get('https://ing-web-mascot-module.herokuapp.com/api/mascots', {
       headers: { Authorization: `Bearer ${token}` },
     });
     return data;
@@ -14,7 +14,7 @@ export const getAllPetsService = async token => {
 
 export const getPetByIdService = async (petId, token) => {
   try {
-    const { data } = await axios.get(`https://ing-web-mascots.herokuapp.com/api/mascots/${petId}`, {
+    const { data } = await axios.get(`https://ing-web-mascot-module.herokuapp.com/api/mascots/${petId}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     return data;
@@ -26,7 +26,7 @@ export const getPetByIdService = async (petId, token) => {
 
 export const createPetService = async (pet, token) => {
   try {
-    const { data } = await axios.post('https://ing-web-mascots.herokuapp.com/api/mascots', pet, {
+    const { data } = await axios.post('https://ing-web-mascot-module.herokuapp.com/api/mascots', pet, {
       headers: { Authorization: `Bearer ${token}` },
     });
     return data;
@@ -38,7 +38,7 @@ export const createPetService = async (pet, token) => {
 
 export const updatePetService = async (pet, petId, token) => {
   try {
-    const { data } = await axios.put(`https://ing-web-mascots.herokuapp.com/api/mascots/${petId}`, pet, {
+    const { data } = await axios.put(`https://ing-web-mascot-module.herokuapp.com/api/mascots/${petId}`, pet, {
       headers: { Authorization: `Bearer ${token}` },
     });
     return data;
@@ -50,7 +50,7 @@ export const updatePetService = async (pet, petId, token) => {
 
 export const deletePetService = async (petId, token) => {
   try {
-    const { data } = await axios.delete(`https://ing-web-mascots.herokuapp.com/api/mascots/${petId}`, {
+    const { data } = await axios.delete(`https://ing-web-mascot-module.herokuapp.com/api/mascots/${petId}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     return data;
