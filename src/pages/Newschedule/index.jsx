@@ -60,8 +60,8 @@ const NewSchedulePage = () => {
               <NewScheduleForm showModalSuccess={showModalSuccess} showModalError={showModalError} pets={pets} />
               <Modal show={state.showModal} error={state.error} errorMessage={state.errorMessage} closeModal={closeModal}>
                 <FormModal
-                  title="Propietario registrado"
-                  description="Pueder ver la información en la sección de propietarios"
+                  title="Agenmiento registrado"
+                  description="Pueder ver la información en la sección de agendamientos"
                 />
               </Modal>
             </React.Fragment>

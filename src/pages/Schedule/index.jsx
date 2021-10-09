@@ -7,8 +7,6 @@ import Spinner from '../../components/Spinner/Spinner';
 import { getAllSchedulesService } from '../../services/Schedule.service';
 import { AuthContext } from '../../context/Auth.context';
 
-//.toISOString().replace(/T.*$/, '')
-
 const SchedulePage = () => {
   const [scheduleEvents, setScheduleEvents] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
@@ -24,9 +22,13 @@ const SchedulePage = () => {
           title: schedule.serviceName,
           start: new Date(schedule.startDate),
           end: new Date(schedule.finishDate),
-          extendedProps: { petId: schedule.idPet, status: schedule.status, news: schedule.news, cost: schedule.cost },
+          extendedProps: {
+            scheduleId: schedule._id,
+            petId: schedule.idPet,
+            serviceName: schedule.serviceName,
+            status: schedule.status,
+          },
         }));
-        console.log(formatSchedules);
         setScheduleEvents(formatSchedules);
       } catch (error) {
         setError(true);

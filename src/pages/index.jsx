@@ -2,6 +2,7 @@ import { Switch, Route } from 'react-router-dom';
 import EditEmployee from './Editemployee';
 import EditOwner from './Editowner';
 import EditPet from './Editpet';
+import EditSchedule from './Editshedule';
 import EmployeeSignUp from './Employeesignup';
 import Guest from './Guest';
 import Home from './Home';
@@ -27,6 +28,7 @@ const AppPages = () => {
       <Route path="/newpet" component={NewPet} />
       <Route path="/editpet/:pet_id" component={EditPet} />
       <Route path="/newschedule" component={NewSchedule} />
+      <Route path="/editschedule/:schedule_id" component={EditSchedule} />
     </Switch>
   );
 };
