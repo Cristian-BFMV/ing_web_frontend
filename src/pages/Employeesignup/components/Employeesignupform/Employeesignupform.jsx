@@ -1,16 +1,22 @@
 import { Fragment } from 'react';
 import { useForm } from 'react-hook-form';
 import Form from '../../../../components/Form/Form';
+import { signupService } from '../../../../services/Auth.service';
 
-const EmployeeSignUpForm = () => {
+const EmployeeSignUpForm = ({ employee_id, showModalSuccess, showModalError }) => {
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm();
 
-  const onSubmit = data => {
-    console.log(data);
+  const onSubmit = async data => {
+    try {
+      await signupService(data, employee_id);
+      showModalSuccess();
+    } catch (error) {
+      showModalError('No ha sido posible actualizar tus datos');
+    }
   };
 
   return (

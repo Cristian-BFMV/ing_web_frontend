@@ -1,15 +1,31 @@
+import React from 'react';
 import { useRouteMatch, NavLink, Switch, Route } from 'react-router-dom';
-import Employees from '../Employees/Employees';
-import Info from '../Info/Info';
-import Pets from '../Pets/Pets';
+import Employees from '../../../Employees';
+import Info from '../../../Info';
+import Owners from '../../../Owners';
+import Pets from '../../../Pets';
+import Schedule from '../../../Schedule';
 import './Panel.css';
 
 const Panel = () => {
+  const [greeting, setGreeting] = React.useState('');
+
+  React.useEffect(() => {
+    const currentHour = new Date().getHours();
+    if (currentHour < 12) {
+      setGreeting('¡Buenos días!');
+    } else if (currentHour < 18) {
+      setGreeting('¡Buenas tardes!');
+    } else {
+      setGreeting('¡Buenas noches!');
+    }
+  }, []);
+
   const { path, url } = useRouteMatch();
   return (
     <section className="panel-container">
       <div className="panel-header">
-        <h2 className="panel-header-title">Hola, Mateo Baena</h2>
+        <h2 className="panel-header-title">{greeting}</h2>
         <p className="panel-header-description">Este es tu panel de administración</p>
       </div>
       <div className="panel-body">
@@ -44,12 +60,8 @@ const Panel = () => {
           <Route path={path} exact={true} component={Info} />
           <Route path={`${path}/employees`} component={Employees} />
           <Route path={`${path}/pets`} component={Pets} />
-          <Route path={`${path}/owners`}>
-            <h1>owners</h1>
-          </Route>
-          <Route path={`${path}/schedule`}>
-            <h1>schedule</h1>
-          </Route>
+          <Route path={`${path}/owners`} component={Owners} />
+          <Route path={`${path}/schedule`} component={Schedule} />
         </Switch>
       </div>
     </section>

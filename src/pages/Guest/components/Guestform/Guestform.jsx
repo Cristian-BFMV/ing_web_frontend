@@ -1,16 +1,24 @@
-import { Fragment } from 'react';
+import { Fragment, useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import Form from '../../../../components/Form/Form';
+import { AuthContext } from '../../../../context/Auth.context';
+import { guestTokenService } from '../../../../services/Owners.service';
 
-const GuestForm = () => {
+const GuestForm = ({ showModalSuccess, showModalError }) => {
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm();
+  const { token } = useContext(AuthContext);
 
-  const onSubmit = data => {
-    console.log(data);
+  const onSubmit = async ({ email }) => {
+    try {
+      await guestTokenService(email, token);
+      showModalSuccess();
+    } catch (error) {
+      showModalError(error.message);
+    }
   };
 
   return (
@@ -21,16 +29,16 @@ const GuestForm = () => {
       buttonText="Solicitar Acceso"
     >
       <Fragment>
-        <label className="form-label" htmlFor="document">
-          Documento
+        <label className="form-label" htmlFor="email">
+          Email
         </label>
         <input
-          className={`form-input ${errors.document && 'form-input-invalid'}`}
+          className={`form-input ${errors.email && 'form-input-invalid'}`}
           type="text"
-          id="document"
-          {...register('document', { required: true })}
+          id="email"
+          {...register('email', { required: true })}
         />
-        <p className="form-input-error-message">{errors.document && 'Este campo es requerido'}</p>
+        <p className="form-input-error-message">{errors.email && 'Este campo es requerido'}</p>
       </Fragment>
     </Form>
   );
