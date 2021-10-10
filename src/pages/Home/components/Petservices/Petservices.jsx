@@ -6,9 +6,7 @@ const PetServices = () => {
     <div className="pet-services-container">
       <div className="pet-services-header">
         <h2 className="pet-services-header-title">Nuestros Servicios</h2>
-        <p className="pet-services-header-description">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint, quas.
-        </p>
+        <p className="pet-services-header-description">El mejor lugar para tu mascota</p>
       </div>
       <section className="services-icons">
         <article className="service-card">
@@ -18,8 +16,8 @@ const PetServices = () => {
           <div className="service-card-body">
             <h2 className="service-card-title">Día de Sol</h2>
             <p className="service-card-description">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae, iusto dignissimos provident voluptatem in
-              temporibus.
+              Un día de mucha diversión para que tu perro socialice, juegue y realice mucho ejercicio en compañía de sus
+              amigos
             </p>
           </div>
         </article>
@@ -28,10 +26,10 @@ const PetServices = () => {
             <img src={sun} alt="Sun Icon" className="service-card-icon" />
           </div>
           <div className="service-card-body">
-            <h2 className="service-card-title">Día de Sol</h2>
+            <h2 className="service-card-title">Guarderia de Mascotas</h2>
             <p className="service-card-description">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae, iusto dignissimos provident voluptatem in
-              temporibus.
+              Contamos con los mejores adiestradores caninos de Medellín, Guardería Canina 24 horas. Todos nuestros servicios
+              apoyado por expertos en etología. Una experiencia única para tu mascota!
             </p>
           </div>
         </article>
@@ -40,10 +38,10 @@ const PetServices = () => {
             <img src={sun} alt="Sun Icon" className="service-card-icon" />
           </div>
           <div className="service-card-body">
-            <h2 className="service-card-title">Día de Sol</h2>
+            <h2 className="service-card-title">Colegio de Mascotas</h2>
             <p className="service-card-description">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae, iusto dignissimos provident voluptatem in
-              temporibus.
+              Espacio privilegiado y de fácil acceso, rodeado de bosques nativos, ríos y quebradas. ¡Un lugar ideal para el
+              bienestar y esparcimiento de nuestros mejores amigos!
             </p>
           </div>
         </article>
