@@ -59,3 +59,19 @@ export const updateOwnerService = async (owner, ownerId, token) => {
     throw new Error('Lo sentimos este servicio no esta disponible, intentalo más tarde');
   }
 };
+
+export const guestTokenService = async (email, token) => {
+  try {
+    const { data } = await axios.post(
+      'https://ing-web-owner-module.herokuapp.com/api/owner/guest',
+      { email },
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
+    return data;
+  } catch (error) {
+    if (error.response.status === 400) throw new Error('No ha sido posible enviar el correo');
+    throw new Error('Lo sentimos este servicio no esta disponible, intentalo más tarde');
+  }
+};

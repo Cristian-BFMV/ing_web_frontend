@@ -25,3 +25,15 @@ export const signupService = async ({ username, password }, id) => {
     throw new Error('Lo sentimos este servicio no esta disponible, intentalo más tarde');
   }
 };
+
+export const verifyGuestToken = async token => {
+  try {
+    const { data } = await axios.get(`https://ing-web-security-module.herokuapp.com/api/auth/verifytoken`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    return data;
+  } catch (error) {
+    if (error.response.status === 400) throw new Error(error.response.message);
+    throw new Error('Lo sentimos este servicio no esta disponible, intentalo más tarde');
+  }
+};
