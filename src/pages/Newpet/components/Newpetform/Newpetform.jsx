@@ -73,7 +73,7 @@ const NewPetForm = ({ register, errors, fields, owners, addField, removeField })
           ))}
         </select>
       ))}
-      {/* <div className="positions-actions-container">
+       <div className="positions-actions-container">
         {fields.length > 1 && (
           <div className="position-icon" onClick={removeField}>
             <img src="https://img.icons8.com/material-outlined/24/000000/filled-trash.png" alt="" />
@@ -84,7 +84,7 @@ const NewPetForm = ({ register, errors, fields, owners, addField, removeField })
             <img src="https://img.icons8.com/material/24/000000/plus-2-math--v1.png" alt="" />
           </div>
         )}
-      </div> */}
+      </div>
     </React.Fragment>
   );
 };

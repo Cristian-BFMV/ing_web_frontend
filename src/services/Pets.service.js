@@ -19,7 +19,7 @@ export const getPetByIdService = async (petId, token) => {
     });
     return data;
   } catch (error) {
-    console.log(error);
+
     if (error.response.status === 400) throw new Error('No ha sido posible cargar las mascotas');
     throw new Error('Lo sentimos este servicio no esta disponible, intentalo más tarde');
   }
@@ -27,7 +27,10 @@ export const getPetByIdService = async (petId, token) => {
 
 export const createPetService = async (pet, token) => {
   try {
-    console.log(pet);
+    
+    pet.owners = pet.owners.map(owner => {
+      return owner._id;
+    });
     const { data } = await axios.post('https://ing-web-mascot-module.herokuapp.com/api/mascots', pet, {
       headers: { Authorization: `Bearer ${token}` },
     });
